@@ -12,6 +12,7 @@ class ChatController extends OnmedaAppController {
     }
     
     public function indexAction() {
+        Console::pprintln("Server Started ... ");
         $s = new SockerServer();
         $s->start();
         /*$s = new SocketChat();
