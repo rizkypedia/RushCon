@@ -1,0 +1,28 @@
+{
+    "name": "RushCon",
+    "description": "A simple Framework for Console Apps",
+    "keywords": [
+        "Console",
+        "cli",
+        "Framework"
+    ],
+    "version": "0.0.1-dev",
+    "homepage": "https://github.com/rizkypedia/",
+    "license": "GPL-3.0+",
+    "authors" : [
+        {
+            "name": "Rizky Ridwan",
+            "email": "dragonclaw79@googlemail.com",
+            "role": "Developer"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "RushCon\\": "App/src",
+            "Onmeda\\": "App/Plugins/Onmeda/src"
+        }
+    }
+}
