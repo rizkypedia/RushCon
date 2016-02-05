@@ -25,7 +25,7 @@ class Load {
         
         $obj = $namespace ."\\Controller\\" . $class ."Controller";
         $instance = new $obj();
-        call_user_func_array(array($instance, "indexAction"),$params);
+        call_user_func_array(array($instance, $action.ACTIONSUFFIX),$params);
     }
     
 }
