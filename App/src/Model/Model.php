@@ -245,6 +245,7 @@ class Model {
                 } else {
                     $sql .= "FROM " . $tablename;
                 }
+                
                 //conditions
                 
                 if (isset($additionals['conditions']) && !empty($additionals['conditions'])) {
@@ -286,9 +287,9 @@ class Model {
                     $tmp = array();
                     foreach ($ffields as $ffield) {
                         
-                        if ($row[$ffield]) {
+                        //if ($row[$ffield]) {
                             $tmp[$ffield] = $row[$ffield];
-                        }
+                        //}
                     }
                     
                     array_push($finalResults, $tmp);
@@ -439,7 +440,9 @@ class Model {
     }
     
     public function parseTableClassName($tableClass) {
+        
         $classParts = explode("\\", $tableClass);
+        
         $lastIndex = count($classParts) - 1;
         $tableName = str_replace(TABLECLASS_SUFFIX,"", $classParts[$lastIndex]);
         

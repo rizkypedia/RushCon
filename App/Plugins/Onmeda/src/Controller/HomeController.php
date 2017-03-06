@@ -12,8 +12,8 @@ class HomeController extends OnmedaAppController {
     private $__mongoSource;
     public function __construct() {
         parent::__construct();        
-        $this->__articles = Register::table("Onmeda.Articles", $this->credentials);
-        $this->__mongoSourceClient = new Mongo();
+        //$this->__articles = Register::table("Onmeda.Articles", $this->credentials);
+        //$this->__mongoSourceClient = new Mongo();
     }
     
     public function indexAction($articelId = null) {
@@ -21,7 +21,8 @@ class HomeController extends OnmedaAppController {
         if (!empty($articelId)) {
             $conditions = array("Articles.id" => $articelId);
         }
-        $arts = $this->__articles->find(array(
+        Console::pprintln($this->encrypt_password("aufeminin100%"));
+        /*$arts = $this->__articles->find(array(
             'conditions' => $conditions
         ));
         
@@ -29,7 +30,7 @@ class HomeController extends OnmedaAppController {
         foreach ($arts as $articles => $article) {
             Console::pprintln($article['id']);
             Console::pprintln($article['title']);
-        }
+        }*/
     }
     
     public function mongoAction() {
@@ -45,5 +46,37 @@ class HomeController extends OnmedaAppController {
         }
                 
     }
+    
+    public function encrypt_password($plain) {
+        $password="";
+    	for ($i=0; $i<10; $i++) {
+      		$password .= $this->mk_rand();
+    	}
+
+    	$salt = substr(md5($password), 0, 2);
+
+    	$password = md5($salt . $plain) . ':' . $salt;
+
+   	return $password;
+  }
+  
+  public function mk_rand($min = null, $max = null) {
+    static $seeded;
+
+    if (!isset($seeded)) {
+      mt_srand((double)microtime()*1000000);
+      $seeded = true;
+    }
+
+    if (isset($min) && isset($max)) {
+      if ($min >= $max) {
+        return $min;
+      } else {
+        return mt_rand($min, $max);
+      }
+    } else {
+      return mt_rand();
+    }
+  }
     
 }

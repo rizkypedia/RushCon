@@ -1,6 +1,7 @@
 <?php namespace Onmeda\Model;
 
 use RushCon\Model\Model as BaseModel;
+use RushCon\Core\Camelizer as camelizer;
 
 class ArticlesTable extends BaseModel {
     

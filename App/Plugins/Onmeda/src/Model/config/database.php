@@ -5,7 +5,7 @@ class database {
 		'host'=>'localhost',
 		'user'=>'root',
 		'password'=>'',
-		'database'=>'myapp'
+		'database'=>'resip_db'
 	);
 }
 
