@@ -22,7 +22,8 @@
     "autoload": {
         "psr-4": {
             "RushCon\\": "App/src",
-            "Onmeda\\": "App/Plugins/Onmeda/src"
+            "Onmeda\\": "App/Plugins/Onmeda/src",
+            "Go\\":"App/Plugins/Go/src"
         }
     }
 }
