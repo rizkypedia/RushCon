@@ -1,5 +1,5 @@
 {
-    "name": "RushCon",
+    "name": "rzkdwn/rushcon",
     "description": "A simple Framework for Console Apps",
     "keywords": [
         "Console",
@@ -17,7 +17,7 @@
         }
     ],
     "require-dev": {
-        "phpunit/phpunit": "~4.0"
+        "phpunit/phpunit": "^9.5.0"
     },
     "autoload": {
         "psr-4": {
