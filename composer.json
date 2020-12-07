@@ -6,13 +6,13 @@
         "cli",
         "Framework"
     ],
-    "version": "0.0.1-dev",
+    "version": "1.0",
     "homepage": "https://github.com/rizkypedia/",
     "license": "GPL-3.0+",
     "authors" : [
         {
             "name": "Rizky Ridwan",
-            "email": "dragonclaw79@googlemail.com",
+            "email": "rzkdwn1979@gmail.com",
             "role": "Developer"
         }
     ],
