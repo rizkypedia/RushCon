@@ -1,6 +1,8 @@
 <?php
 namespace Rushcon\Core;
 
+use Rushcon\Core\Factories\ContainerFactory;
+use Rushcon\Core\Factories\ControllerFactory;
 use Rushcon\Model\ConnectionManager;
 
 class Load {
@@ -14,7 +16,6 @@ class Load {
     }
 
     public function runObject($PluginParts = array(), $params = array()) {
-        $cons = ConnectionManager::$connections;
 
         //namespace
         $namespace = $PluginParts['namespace'];
@@ -23,9 +24,8 @@ class Load {
         //action/method
         $action = $PluginParts['action'];
 
-
-        $obj = $namespace ."\\Controller\\" . $class ."Controller";
-        $instance = new $obj();
+        $obj = $namespace .CONTROLLER_SUFFIX . $class .CONTROLLER_SUFFIX;
+        $instance = ControllerFactory::create($obj);
         call_user_func_array(array($instance, $action.ACTIONSUFFIX),$params);
     }
 

@@ -8,8 +8,8 @@ use Rushcon\Core\Container;
 
 class ContainerFactory
 {
-    public static function create(Container $container):Container
+    public static function create():Container
     {
-        return new $container();
+        return new Container();
     }
 }

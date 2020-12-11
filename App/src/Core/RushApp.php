@@ -8,7 +8,7 @@ class RushApp
         "-v" => "Shows the Rushcon Version",
         "-h" => "Shows the help",
         "-a" => "About Rushcon",
-        "-e" => "Executes a Rushcon plugin e. g. PluginName.Controller.action [params]");
+        "-e" => "Executes a Rushcon plugin e. g. PluginName:Controller:action [params]");
 
 
     public static function run($args = array()) {
