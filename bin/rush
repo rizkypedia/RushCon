@@ -1,0 +1,5 @@
+#!/usr/bin/env php
+<?php
+require dirname(__DIR__) . '/App/Config/bootstrap.php';
+
+\Rushcon\Core\RushApp::run($argv);

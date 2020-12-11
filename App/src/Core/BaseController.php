@@ -3,7 +3,6 @@
 namespace Rushcon\Core;
 
 
-
 class BaseController
 {
     /**

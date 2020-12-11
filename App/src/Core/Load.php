@@ -24,7 +24,8 @@ class Load {
         //action/method
         $action = $PluginParts['action'];
 
-        $obj = $namespace .CONTROLLER_SUFFIX . $class .CONTROLLER_SUFFIX;
+        $obj = $namespace . NAMESPACE_DELIMITER . CONTROLLER_SUFFIX . NAMESPACE_DELIMITER . $class .CONTROLLER_SUFFIX;
+
         $instance = ControllerFactory::create($obj);
         call_user_func_array(array($instance, $action.ACTIONSUFFIX),$params);
     }

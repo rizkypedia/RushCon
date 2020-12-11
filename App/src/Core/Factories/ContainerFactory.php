@@ -3,7 +3,6 @@
 
 namespace Rushcon\Core\Factories;
 
-
 use Rushcon\Core\Container;
 
 class ContainerFactory
