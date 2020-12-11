@@ -1,18 +1,18 @@
-<?php namespace RushCon\Core;
+<?php namespace Rushcon\Core;
 
 class Console {
-    
+
     public static function pprintln($msg = "") {
         echo $msg ."\n";
     }
-    
+
     public static function pprint($msg) {
         echo $msg;
     }
-    
+
     public static function lineSeperator() {
         return "\n";
     }
-    
+
 }
 

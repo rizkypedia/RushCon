@@ -1,6 +1,6 @@
-<?php namespace RushCon\Core;
+<?php namespace Rushcon\Core;
 
 class Core {
-    
+
 }
 

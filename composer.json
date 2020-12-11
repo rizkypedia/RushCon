@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "RushCon\\": "App/src"
+            "Rushcon\\": "App/src"
         }
     }
 }

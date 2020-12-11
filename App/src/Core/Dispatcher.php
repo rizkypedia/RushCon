@@ -1,13 +1,13 @@
-<?php namespace RushCon\Core;
+<?php namespace Rushcon\Core;
 
-use RushCon\Core\Shell;
+use Rushcon\Core\Shell;
 
 class Dispatcher {
-    
+
     public static function dispatch($args = array()) {
         Shell::parseArguments($args);
     }
-    
+
 }
 
 
