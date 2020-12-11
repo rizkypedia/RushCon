@@ -1,4 +1,5 @@
-<?php namespace Rushcon\Core;
+<?php
+namespace Rushcon\Core;
 
 use Rushcon\Model\ConnectionManager;
 

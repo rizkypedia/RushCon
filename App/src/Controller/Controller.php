@@ -1,19 +1,18 @@
-<?php namespace RushCon\Controller;
+<?php
 
-use RushCon\Core\Console;
+namespace Rushcon\Controller;
 
-class Controller {
 
-    public function __construct() {
-    }
 
-    public function getNamespace($namespace) {
-        $namespaceParts = explode("\\", $namespace);
-        return $namespaceParts[0];
-    }
+use Rushcon\CoreBaseController;
+use Rushcon\Core\Console;
+use Rushcon\CoreContainer;
 
-    public function clean($strText) {
-        return trim($strText);
+class Controller extends BaseController {
+
+    public function __construct(Container $container)
+    {
+        parent::__construct($container);
     }
 
 }

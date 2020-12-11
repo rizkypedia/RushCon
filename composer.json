@@ -23,5 +23,8 @@
         "psr-4": {
             "Rushcon\\": "App/src"
         }
-    }
+    },
+  "require": {
+    "ext-json": "*"
+  }
 }

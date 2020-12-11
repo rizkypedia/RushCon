@@ -1,4 +1,6 @@
-<?php namespace Rushcon\Core;
+<?php
+
+namespace Rushcon\Core;
 
 class Register {
 

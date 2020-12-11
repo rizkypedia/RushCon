@@ -1,4 +1,6 @@
-<?php namespace Rushcon\Core;
+<?php
+
+namespace Rushcon\Core;
 
 class Console {
 
@@ -14,5 +16,13 @@ class Console {
         return "\n";
     }
 
+    public function getNamespace($namespace) {
+        $namespaceParts = explode("\\", $namespace);
+        return $namespaceParts[0];
+    }
+
+    public function clean($strText) {
+        return trim($strText);
+    }
 }
 

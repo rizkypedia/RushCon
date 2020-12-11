@@ -1,6 +1,9 @@
-<?php namespace Rushcon\Core;
+<?php
 
-class Camelizer {
+namespace Rushcon\Core;
+
+class Camelizer
+{
     public static function camelize($scored) {
     return lcfirst(
       implode(
@@ -15,7 +18,8 @@ class Camelizer {
   /**
   * Transforms a camelCasedString to an under_scored_one
   */
-  public static function decamelize($cameled) {
+  public static function decamelize($cameled)
+  {
     return implode(
       '_',
       array_map(
