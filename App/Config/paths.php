@@ -8,4 +8,4 @@ define('PROJECT_ROOT_PATH', dirname(ROOT_PATH));
 define('VENDOR', PROJECT_ROOT_PATH . DS . "vendor" );
 define('TMP', ROOT_PATH . DS . "tmp");
 define('PLUGINS', ROOT_PATH . DS . "src/custom/plugins");
-define('PLUGIN_CONFIG', ROOT_PATH . DS . "plugins/plugins.yml");
+define('DEFAULT_CORE_YML', ROOT_PATH . DS ."src/rushcon.yml") ;
