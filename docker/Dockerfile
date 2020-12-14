@@ -12,7 +12,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         git \
         ssh \
         zip \
-        mysql-client \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
