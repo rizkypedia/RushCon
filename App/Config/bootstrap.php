@@ -4,6 +4,7 @@ require VENDOR . DS . "autoload.php";
 
 define('ACTIONSUFFIX', "Action");
 define('CONTROLLER_SUFFIX', 'Controller');
+define('CONTROLLER_NAMESPACE_SUFFIX', 'Controllers');
 define('DEFAULT_NAMESPACE', 'Rushcon');
 define('DELIMITER', ":");
 define('MODELNAMESPACE', 'Model');

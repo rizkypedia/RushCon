@@ -8,3 +8,6 @@ services:
     working_dir: "/var/project"
     env_file:
       - ./.env
+    volumes:
+    - "$SYNC_PATH/:/var/project"
+    - "$DUMP_PATH/:/dump"

@@ -1,0 +1,7 @@
+plugins:
+  Rushcon:
+    name: rushcon
+    alias: rush
+    namespace: Rushcon\\
+    controllers: Rushcon\\Controllers
+    services: Rushcon\\Services
