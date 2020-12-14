@@ -1,0 +1,10 @@
+version: "3.5"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    container_name: "${PROJECT_NAME}-app"
+    working_dir: "/var/project"
+    env_file:
+      - ./.env
