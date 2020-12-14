@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libicu-dev \
         g++ \
         libxml2-dev \
+        libyaml-dev -y \
     && docker-php-ext-install -j$(nproc) iconv \
     && docker-php-ext-install soap \
     && docker-php-ext-configure intl \
@@ -29,6 +30,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && docker-php-ext-install -j$(nproc) gd mysqli pdo pdo_mysql zip mbstring \
     && rm -rf /var/lib/apt/lists/*; \
     docker-php-ext-install opcache && docker-php-ext-enable opcache; \
+    pecl install yaml && echo "extension=yaml.so" > /usr/local/etc/php/conf.d/ext-yaml.ini && docker-php-ext-enable yaml; \
     pecl install xdebug-2.7.2  && docker-php-ext-enable xdebug; \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer; \
     docker-php-source delete; \

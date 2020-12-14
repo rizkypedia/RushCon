@@ -17,7 +17,6 @@ class HelloController extends BaseController {
     public function indexAction()
     {
         Console::pprintln('Hello World');
-        Console::pprintln(ROOT_PATH);
     }
 
 }
