@@ -51,7 +51,7 @@ class RushApp
         $errors = array(
             "0" => "No Parameters detected!",
             "1" => "Unkown prefix " . (empty($vars) ? "" : $vars) . " allowed prefix: " . Console::lineSeperator() . self::printLegalPrefix(),
-            "2" => "Wrong Plugincall! Call for Plugin must look like this: PluginName.Controller.[action] [params]. Each element before [params] must be seperated by " . DELIMITER . ". [action] is optional, by leaving this option out an Rushcon tries to call an Index method"
+            "2" => "Wrong Plugincall! Call for Plugin must look like this: PluginName. Controller.[action] [params]. Each element before [params] must be seperated by " . DELIMITER . ". [action] is optional, by leaving this option out an Rushcon tries to call an Index method"
         );
 
         Console::pprint($errors[$errorType]);
@@ -107,7 +107,6 @@ class RushApp
         $userInputs = explode(DELIMITER, $input);
 
         $PluginParts = array();
-
 
         if (count($userInputs) < 2 || count($userInputs) > 3) {
             self::errors("2");

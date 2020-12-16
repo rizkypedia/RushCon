@@ -1,6 +1,7 @@
 <?php
 namespace Rushcon\Core;
 
+use http\Exception\RuntimeException;
 use Rushcon\Core\Factories\ContainerFactory;
 use Rushcon\Core\Factories\ControllerFactory;
 use Rushcon\Model\ConnectionManager;
@@ -15,19 +16,33 @@ class Load {
          return self::$instance;
     }
 
-    public function runObject($PluginParts = array(), $params = array()) {
-
+    /**
+     * @param array $PluginParts
+     * @param array $params
+     */
+    public function runObject($PluginParts = array(), $params = array())
+    {
         //namespace
-        $namespace = $PluginParts['namespace'];
+        $pluginName = $PluginParts['namespace'];
         //controller class
         $class = $PluginParts['controller'];
         //action/method
         $action = $PluginParts['action'];
 
-        $obj = $namespace . NAMESPACE_DELIMITER . CONTROLLER_NAMESPACE_SUFFIX . NAMESPACE_DELIMITER . $class .CONTROLLER_SUFFIX;
+        // Core or Plugin
+        $pluginInfo = ConfigYmlReader::readConfig(DEFAULT_CORE_YML, $pluginName);
+        if (!$pluginInfo) {
+            $pluginInfo = ConfigYmlReader::getPluginConfig($pluginName);
+        }
+
+        if (empty($pluginInfo)) {
+            throw new \RuntimeException('Unkown Plugin: ' . $pluginName);
+        }
+
+        $obj = $pluginInfo['controllers'] . NAMESPACE_DELIMITER . $class .CONTROLLER_SUFFIX;
 
         $instance = ControllerFactory::create($obj);
-        call_user_func_array(array($instance, $action.ACTIONSUFFIX),$params);
+        call_user_func_array(array($instance, ucfirst($action).ACTIONSUFFIX),$params);
     }
 
 }

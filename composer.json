@@ -25,6 +25,7 @@
         }
     },
   "require": {
-    "ext-json": "*"
+    "ext-json": "*",
+        "nette/finder": "^2.5"
   }
 }

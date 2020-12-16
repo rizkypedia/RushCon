@@ -1,0 +1,12 @@
+#This is the Rushcon Core yml file
+Rushcon:
+ name: rushcon
+ alias:
+  - 'rush'
+  - 'Rush'
+  - 'rsh'
+  - 'Rushcon'
+ type: 'core'
+ namespace: 'Rushcon\'
+ controllers: 'Rushcon\Controllers'
+ services: 'Rushcon\Services'

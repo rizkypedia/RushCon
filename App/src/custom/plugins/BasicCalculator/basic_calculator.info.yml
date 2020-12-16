@@ -1,0 +1,9 @@
+BasicCalculator:
+  name: basic_calculator
+  alias:
+    - 'bcalc'
+    - 'basic_calculator'
+  type: 'plugin'
+  namespace: 'Rushcon\custom\plugins'
+  controllers: 'Rushcon\custom\plugins\BasicCalculator\Controllers'
+  services: 'Rushcon\custom\plugins\BasicCalculator\Controllers\Services'
