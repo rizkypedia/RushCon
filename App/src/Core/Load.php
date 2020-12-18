@@ -42,7 +42,7 @@ class Load {
         $obj = $pluginInfo['controllers'] . NAMESPACE_DELIMITER . $class .CONTROLLER_SUFFIX;
 
         $instance = ControllerFactory::create($obj);
-        call_user_func_array(array($instance, ucfirst($action).ACTIONSUFFIX),$params);
+        call_user_func_array(array($instance, lcfirst(Camelizer::camelize($action)).ACTIONSUFFIX),$params);
     }
 
 }
