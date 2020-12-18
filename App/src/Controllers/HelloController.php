@@ -7,7 +7,8 @@ use Rushcon\Core\BaseController;
 use Rushcon\Core\Console;
 use Rushcon\Core\Container;
 
-class HelloController extends BaseController {
+class HelloController extends BaseController
+{
 
     public function __construct(Container $container)
     {

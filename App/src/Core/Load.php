@@ -1,12 +1,11 @@
 <?php
 namespace Rushcon\Core;
 
-use http\Exception\RuntimeException;
-use Rushcon\Core\Factories\ContainerFactory;
 use Rushcon\Core\Factories\ControllerFactory;
 use Rushcon\Model\ConnectionManager;
 
-class Load {
+class Load
+{
     private static $instance=null;
 
     public static function getInstance(){

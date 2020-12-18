@@ -54,11 +54,12 @@ class Container
      */
     public function resolve($concrete, $parameters)
     {
-        if ($concrete instanceof Closure && is_callable($concrete)) {
+        if ($concrete instanceof Closure && is_callable($concrete))
+        {
             return $concrete($this, $parameters);
         }
 
-        $reflector = new ReflectionClass($concrete);
+        $reflector = new \ReflectionClass($concrete);
         // check if class is instantiable
         if (!$reflector->isInstantiable()) {
             throw new Exception("Class {$concrete} is not instantiable");

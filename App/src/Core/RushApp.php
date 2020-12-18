@@ -11,7 +11,8 @@ class RushApp
         "-e" => "Executes a Rushcon plugin e. g. PluginName:Controller:action [params]");
 
 
-    public static function run($args = array()) {
+    public static function run($args = array())
+    {
         array_shift($args);
 
 
@@ -47,7 +48,8 @@ class RushApp
 
     }
 
-    private static function errors($errorType = "0", $vars = null) {
+    private static function errors($errorType = "0", $vars = null)
+    {
         $errors = array(
             "0" => "No Parameters detected!",
             "1" => "Unkown prefix " . (empty($vars) ? "" : $vars) . " allowed prefix: " . Console::lineSeperator() . self::printLegalPrefix(),
@@ -58,7 +60,8 @@ class RushApp
         die();
     }
 
-    private static function printLegalPrefix() {
+    private static function printLegalPrefix()
+    {
         $msg = "";
 
         foreach (self::$__shortCommands as $key => $description) {
@@ -68,7 +71,8 @@ class RushApp
         return $msg;
     }
 
-    private static function printAbout() {
+    private static function printAbout()
+    {
         $about = "";
 
         if (file_exists(PROJECT_ROOT_PATH . DS . "composer.json")) {
@@ -89,7 +93,8 @@ class RushApp
         Console::pprintln($about);
     }
 
-    private static function printVersion() {
+    private static function printVersion()
+    {
         $version = "";
         if (file_exists(PROJECT_ROOT_PATH . DS . "composer.json")) {
             $jsonFile = json_decode(file_get_contents(PROJECT_ROOT_PATH . DS . "composer.json"), false);
@@ -103,7 +108,8 @@ class RushApp
         Console::pprintln(Console::lineSeperator() . self::printLegalPrefix());
     }
 
-    private static function parseInput($input) {
+    private static function parseInput($input)
+    {
         $userInputs = explode(DELIMITER, $input);
 
         $PluginParts = array();
@@ -120,7 +126,8 @@ class RushApp
 
     }
 
-    private static function getParameters($args, $startIndex = 2) {
+    private static function getParameters($args, $startIndex = 2)
+    {
         $params = array();
         for ($i=$startIndex, $iMax = count($args); $i< $iMax; $i++) {
             $params[] = $args[$i];

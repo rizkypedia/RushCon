@@ -1,12 +1,13 @@
 <?php
 
 
-namespace RushCon\Controllers;
-
+namespace Rushcon\Controllers;
 
 use Rushcon\Core\BaseController;
 use Rushcon\Core\Console;
 use Rushcon\Core\Container;
+use Rushcon\Core\PluginReader;
+
 
 class PluginsController extends BaseController
 {
@@ -15,8 +16,15 @@ class PluginsController extends BaseController
         parent::__construct($container);
     }
 
+    /**
+     *
+     */
     public function listAction():void
     {
-        Console::pprintln('Test');
+      $plugins = PluginReader::getListOfPlugins();
+
+      foreach ($plugins as $plugin) {
+          Console::pprintln($plugin);
+      }
     }
 }

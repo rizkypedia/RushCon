@@ -2,8 +2,8 @@
 
 namespace Rushcon\Core;
 
-class Register {
-
+class Register
+{
     public static function table($tablename, $credentials) {
         $parts = explode(".", $tablename);
         $namespace= $parts[0];

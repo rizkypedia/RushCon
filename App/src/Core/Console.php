@@ -4,24 +4,29 @@ namespace Rushcon\Core;
 
 class Console {
 
-    public static function pprintln($msg = "") {
+    public static function pprintln($msg = "")
+    {
         echo $msg ."\n";
     }
 
-    public static function pprint($msg) {
+    public static function pprint($msg)
+    {
         echo $msg;
     }
 
-    public static function lineSeperator() {
+    public static function lineSeperator()
+    {
         return "\n";
     }
 
-    public function getNamespace($namespace) {
+    public function getNamespace($namespace)
+    {
         $namespaceParts = explode("\\", $namespace);
         return $namespaceParts[0];
     }
 
-    public function clean($strText) {
+    public function clean($strText)
+    {
         return trim($strText);
     }
 }
