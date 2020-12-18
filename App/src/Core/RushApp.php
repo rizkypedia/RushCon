@@ -8,7 +8,8 @@ class RushApp
         "-v" => "Shows the Rushcon Version",
         "-h" => "Shows the help",
         "-a" => "About Rushcon",
-        "-e" => "Executes a Rushcon plugin e. g. PluginName:Controller:action [params]");
+        "-e" => "Executes a Rushcon plugin e. g. PluginName:Controller:action [params]",
+    );
 
 
     public static function run($args = array())
@@ -45,15 +46,15 @@ class RushApp
                 $l->runObject($plugin, $paremeters);
                 break;
         }
-
     }
 
     private static function errors($errorType = "0", $vars = null)
     {
         $errors = array(
             "0" => "No Parameters detected!",
-            "1" => "Unkown prefix " . (empty($vars) ? "" : $vars) . " allowed prefix: " . Console::lineSeperator() . self::printLegalPrefix(),
-            "2" => "Wrong Plugincall! Call for Plugin must look like this: PluginName. Controller.[action] [params]. Each element before [params] must be seperated by " . DELIMITER . ". [action] is optional, by leaving this option out an Rushcon tries to call an Index method"
+            "1" => "Unkown prefix ".(empty($vars) ? "" : $vars)." allowed prefix: ".Console::lineSeperator(
+                ).self::printLegalPrefix(),
+            "2" => "Wrong Plugincall! Call for Plugin must look like this: PluginName. Controller.[action] [params]. Each element before [params] must be seperated by ".DELIMITER.". [action] is optional, by leaving this option out an Rushcon tries to call an Index method",
         );
 
         Console::pprint($errors[$errorType]);
@@ -65,7 +66,7 @@ class RushApp
         $msg = "";
 
         foreach (self::$__shortCommands as $key => $description) {
-            $msg .= $key . " ". $description . Console::lineSeperator();
+            $msg .= $key." ".$description.Console::lineSeperator();
         }
 
         return $msg;
@@ -75,19 +76,18 @@ class RushApp
     {
         $about = "";
 
-        if (file_exists(PROJECT_ROOT_PATH . DS . "composer.json")) {
-            $jsonFile = json_decode(file_get_contents(PROJECT_ROOT_PATH . DS . "composer.json"));
+        if (file_exists(PROJECT_ROOT_PATH.DS."composer.json")) {
+            $jsonFile = json_decode(file_get_contents(PROJECT_ROOT_PATH.DS."composer.json"));
             //var_dump($jsonFile);
-            $about .= $jsonFile->name . Console::lineSeperator();
-            $about .= $jsonFile->description . Console::lineSeperator();
-            $about .= "Version: " . $jsonFile->version . Console::lineSeperator();
-            $about .= "License: " . $jsonFile->license . Console::lineSeperator();
+            $about .= $jsonFile->name.Console::lineSeperator();
+            $about .= $jsonFile->description.Console::lineSeperator();
+            $about .= "Version: ".$jsonFile->version.Console::lineSeperator();
+            $about .= "License: ".$jsonFile->license.Console::lineSeperator();
             $about .= "Developed by: ";
-            $about .= $jsonFile->authors[0]->name . Console::lineSeperator();
-            $about .= "E-Mail: " . $jsonFile->authors[0]->email . Console::lineSeperator();
-            $about .= "Homepage: " . $jsonFile->homepage . Console::lineSeperator();
-            $about .= "Copyright by rzkdwn1979 " . date('Y');
-
+            $about .= $jsonFile->authors[0]->name.Console::lineSeperator();
+            $about .= "E-Mail: ".$jsonFile->authors[0]->email.Console::lineSeperator();
+            $about .= "Homepage: ".$jsonFile->homepage.Console::lineSeperator();
+            $about .= "Copyright by rzkdwn1979 ".date('Y');
         }
 
         Console::pprintln($about);
@@ -96,16 +96,17 @@ class RushApp
     private static function printVersion()
     {
         $version = "";
-        if (file_exists(PROJECT_ROOT_PATH . DS . "composer.json")) {
-            $jsonFile = json_decode(file_get_contents(PROJECT_ROOT_PATH . DS . "composer.json"), false);
-            $version .= $jsonFile->version . Console::lineSeperator();
+        if (file_exists(PROJECT_ROOT_PATH.DS."composer.json")) {
+            $jsonFile = json_decode(file_get_contents(PROJECT_ROOT_PATH.DS."composer.json"), false);
+            $version .= $jsonFile->version.Console::lineSeperator();
         }
 
         Console::pprint($version);
     }
 
-    private static function printHelp() {
-        Console::pprintln(Console::lineSeperator() . self::printLegalPrefix());
+    private static function printHelp()
+    {
+        Console::pprintln(Console::lineSeperator().self::printLegalPrefix());
     }
 
     private static function parseInput($input)
@@ -123,15 +124,15 @@ class RushApp
         $PluginParts['action'] = $userInputs[2] ?? "Index";
 
         return $PluginParts;
-
     }
 
     private static function getParameters($args, $startIndex = 2)
     {
         $params = array();
-        for ($i=$startIndex, $iMax = count($args); $i< $iMax; $i++) {
+        for ($i = $startIndex, $iMax = count($args); $i < $iMax; $i++) {
             $params[] = $args[$i];
         }
+
         return $params;
     }
 }

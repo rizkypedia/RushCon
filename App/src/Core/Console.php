@@ -2,11 +2,12 @@
 
 namespace Rushcon\Core;
 
-class Console {
+class Console
+{
 
     public static function pprintln($msg = "")
     {
-        echo $msg ."\n";
+        echo $msg."\n";
     }
 
     public static function pprint($msg)
@@ -22,6 +23,7 @@ class Console {
     public function getNamespace($namespace)
     {
         $namespaceParts = explode("\\", $namespace);
+
         return $namespaceParts[0];
     }
 

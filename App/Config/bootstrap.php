@@ -1,6 +1,7 @@
 <?php
+
 require 'paths.php';
-require VENDOR . DS . "autoload.php";
+require VENDOR.DS."autoload.php";
 
 define('ACTIONSUFFIX', "Action");
 define('CONTROLLER_SUFFIX', 'Controller');

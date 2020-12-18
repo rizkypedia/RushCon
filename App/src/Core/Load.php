@@ -1,4 +1,5 @@
 <?php
+
 namespace Rushcon\Core;
 
 use Rushcon\Core\Factories\ControllerFactory;
@@ -6,13 +7,15 @@ use Rushcon\Model\ConnectionManager;
 
 class Load
 {
-    private static $instance=null;
+    private static $instance = null;
 
-    public static function getInstance(){
-         if (null === self::$instance) {
-             self::$instance = new self;
-         }
-         return self::$instance;
+    public static function getInstance()
+    {
+        if (null === self::$instance) {
+            self::$instance = new self;
+        }
+
+        return self::$instance;
     }
 
     /**
@@ -35,13 +38,13 @@ class Load
         }
 
         if (empty($pluginInfo)) {
-            throw new \RuntimeException('Unkown Plugin: ' . $pluginName);
+            throw new \RuntimeException('Unkown Plugin: '.$pluginName);
         }
 
-        $obj = $pluginInfo['controllers'] . NAMESPACE_DELIMITER . $class .CONTROLLER_SUFFIX;
+        $obj = $pluginInfo['controllers'].NAMESPACE_DELIMITER.$class.CONTROLLER_SUFFIX;
 
         $instance = ControllerFactory::create($obj);
-        call_user_func_array(array($instance, lcfirst(Camelizer::camelize($action)).ACTIONSUFFIX),$params);
+        call_user_func_array(array($instance, lcfirst(Camelizer::camelize($action)).ACTIONSUFFIX), $params);
     }
 
 }

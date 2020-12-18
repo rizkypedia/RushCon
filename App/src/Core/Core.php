@@ -2,7 +2,8 @@
 
 namespace Rushcon\Core;
 
-class Core {
+class Core
+{
 
 }
 

@@ -13,7 +13,7 @@ class ConfigYmlReader
      * @param string $pluginName
      * @return array|bool
      */
-    public static function readConfig(string $strpath, string $pluginName):array
+    public static function readConfig(string $strpath, string $pluginName): array
     {
         $yaml = \yaml_parse_file($strpath);
 
@@ -22,12 +22,12 @@ class ConfigYmlReader
         }
         $pluginInfo = [];
         foreach ($yaml as $key => $value) {
-
-            if($value['name'] === $pluginName || in_array($pluginName, $value['alias'], true)) {
+            if ($value['name'] === $pluginName || in_array($pluginName, $value['alias'], true)) {
                 $pluginInfo = $value;
                 break;
             }
         }
+
         return $pluginInfo;
     }
 
@@ -35,16 +35,17 @@ class ConfigYmlReader
      * @param string $pluginname
      * @return array
      */
-    public static function getPluginConfig(string $pluginname):array
+    public static function getPluginConfig(string $pluginname): array
     {
         $plugins = PluginReader::getListOfPlugins();
         $yamlConfig = [];
         foreach ($plugins as $plugin) {
-            $yamls = Finder::findFiles(Camelizer::decamelize($plugin) . '.info.yml')->from(PLUGINS . DS . $plugin);
+            $yamls = Finder::findFiles(Camelizer::decamelize($plugin).'.info.yml')->from(PLUGINS.DS.$plugin);
             foreach ($yamls as $yaml) {
                 $yamlConfig = self::readConfig($yaml->getPathName(), $pluginname);
             }
         }
+
         return $yamlConfig;
     }
 }

@@ -18,9 +18,9 @@ class Container
      * @param      $abstract
      * @param null $concrete
      */
-    public function set($abstract, $concrete = NULL)
+    public function set($abstract, $concrete = null)
     {
-        if ($concrete === NULL) {
+        if ($concrete === null) {
             $concrete = $abstract;
         }
         $this->instances[$abstract] = $concrete;
@@ -54,8 +54,7 @@ class Container
      */
     public function resolve($concrete, $parameters)
     {
-        if ($concrete instanceof Closure && is_callable($concrete))
-        {
+        if ($concrete instanceof Closure && is_callable($concrete)) {
             return $concrete($this, $parameters);
         }
 
@@ -73,7 +72,7 @@ class Container
         }
 
         // get constructor params
-        $parameters   = $constructor->getParameters();
+        $parameters = $constructor->getParameters();
         $dependencies = $this->getDependencies($parameters);
 
         // get new instance with dependencies resolved
@@ -94,7 +93,7 @@ class Container
         foreach ($parameters as $parameter) {
             // get the type hinted class
             $dependency = $parameter->getClass();
-            if ($dependency === NULL) {
+            if ($dependency === null) {
                 // check if default value for a parameter is available
                 if ($parameter->isDefaultValueAvailable()) {
                     // get default value of parameter

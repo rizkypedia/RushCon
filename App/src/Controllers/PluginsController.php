@@ -19,12 +19,12 @@ class PluginsController extends BaseController
     /**
      *
      */
-    public function listAction():void
+    public function listAction(): void
     {
-      $plugins = PluginReader::getListOfPlugins();
+        $plugins = PluginReader::getListOfPlugins();
 
-      foreach ($plugins as $plugin) {
-          Console::pprintln($plugin);
-      }
+        foreach ($plugins as $plugin) {
+            Console::pprintln($plugin);
+        }
     }
 }

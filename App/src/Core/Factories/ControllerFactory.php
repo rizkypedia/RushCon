@@ -7,9 +7,10 @@ use Rushcon\Core\BaseController;
 
 class ControllerFactory
 {
-    public static function create(string $className):BaseController
+    public static function create(string $className): BaseController
     {
         $class = $className;
+
         return new $class(ContainerFactory::create());
     }
 }

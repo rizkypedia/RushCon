@@ -7,7 +7,7 @@ use Rushcon\Core\Container;
 
 class ContainerFactory
 {
-    public static function create():Container
+    public static function create(): Container
     {
         return new Container();
     }
