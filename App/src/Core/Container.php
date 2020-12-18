@@ -15,7 +15,7 @@ class Container
     protected $instances = [];
 
     /**
-     * @param      $abstract
+     * @param mixed|object $abstract
      * @param null $concrete
      */
     public function set($abstract, $concrete = null)
@@ -27,11 +27,10 @@ class Container
     }
 
     /**
-     * @param       $abstract
+     * @param mixed|null|object $abstract
      * @param array $parameters
      *
      * @return mixed|null|object
-     * @throws Exception
      */
     public function get($abstract, $parameters = [])
     {
@@ -46,22 +45,21 @@ class Container
     /**
      * resolve single
      *
-     * @param $concrete
-     * @param $parameters
+     * @param mixed|object $concrete
+     * @param mixed|object $parameters
      *
      * @return mixed|object
-     * @throws Exception
      */
     public function resolve($concrete, $parameters)
     {
-        if ($concrete instanceof Closure && is_callable($concrete)) {
+        if ($concrete instanceof \Closure && is_callable($concrete)) {
             return $concrete($this, $parameters);
         }
 
         $reflector = new \ReflectionClass($concrete);
         // check if class is instantiable
         if (!$reflector->isInstantiable()) {
-            throw new Exception("Class {$concrete} is not instantiable");
+            throw new \Exception("Class {$concrete} is not instantiable");
         }
 
         // get class constructor
@@ -82,10 +80,9 @@ class Container
     /**
      * get all dependencies resolved
      *
-     * @param $parameters
+     * @param mixed|object $parameters
      *
      * @return array
-     * @throws Exception
      */
     public function getDependencies($parameters)
     {
@@ -99,7 +96,7 @@ class Container
                     // get default value of parameter
                     $dependencies[] = $parameter->getDefaultValue();
                 } else {
-                    throw new Exception("Can not resolve class dependency {$parameter->name}");
+                    throw new \Exception("Can not resolve class dependency {$parameter->name}");
                 }
             } else {
                 // get dependency resolved

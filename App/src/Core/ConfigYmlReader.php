@@ -11,9 +11,9 @@ class ConfigYmlReader
     /**
      * @param string $strpath
      * @param string $pluginName
-     * @return array|bool
+     * @return false|array
      */
-    public static function readConfig(string $strpath, string $pluginName): array
+    public static function readConfig(string $strpath, string $pluginName)
     {
         $yaml = \yaml_parse_file($strpath);
 
